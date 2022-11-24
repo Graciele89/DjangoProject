@@ -3,10 +3,38 @@
 {% block title %}Login{% endblock %}
 
 {% block content %}
-<h2>Log In</h2>
-<form method="post">
-  {% csrf_token %}
-  {{ form.as_p }}
-  <button type="submit">Log In</button>
-</form>
+<!--some bootstrap added -->
+<section class="py-2 text-center container">
+
+  <div class="row py-lg-5">
+    <div class="col-lg-6 col-md-9 mx-auto">
+
+      <form method="post" class="p-4 p-md-5 border rounded-5 bg-light">
+        <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+
+        <!-- using  Django default token and form -->
+           {% csrf_token %}
+           {{ form.as_p }}
+
+        <div class="checkbox mb-4">
+          <label>
+            <input type="checkbox" value="remember-me"> Remember me
+          </label>
+        </div>
+
+        <button class="w-100 btn btn-lg btn-success" type="submit">Log In</button>
+        <hr class="my-4">
+      </form>
+
+    </div>
+  </div>
+
+</section>
+
+<!--<h2>Log In</h2>-->
+<!--<form method="post">-->
+<!--  {% csrf_token %}-->
+<!--  {{ form.as_p }}-->
+<!--  <button type="submit">Log In</button>-->
+<!--</form>-->
 {% endblock %}

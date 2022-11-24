@@ -2,21 +2,39 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Sign-up</title>
 </head>
 <body>
 
 {% extends "base.html" %}
-
 {% block title %}Sign Up{% endblock %}
 
 {% block content %}
-  <h2>Sign up</h2>
-  <form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Sign Up</button>
-  </form>
+
+ <section class="py-5 text-left container">
+        <div class="row py-lg-5">
+            <div class="col-lg-6 col-md-8 mx-auto">
+                <h1>Sign-up</h1>
+                <br>
+
+                <form method="post">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <br>
+                    <button class="w-90 btn btn-lg btn-success" type="submit">Sign Up</button>
+                </form>
+
+            </div>
+        </div>
+  </section>
+
+
+<!--  <h2>Sign up</h2>-->
+<!--  <form method="post">-->
+<!--    {% csrf_token %}-->
+<!--    {{ form.as_p }}-->
+<!--    <button type="submit">Sign Up</button>-->
+<!--  </form>-->
 {% endblock %}
 
 </body>

@@ -1,24 +1,45 @@
+<!--this is the template for the home page in html-->
 {% extends 'base.html' %}
 {% block title %}Home{% endblock %}
 {% block content %}
 
 
-<!---->
+<!--Function which checks if the user is loged in, authentication-->
 {% if user.is_authenticated %}
-  Hi {{ user.username }}!
-  <p><a href="{% url 'polls:index' %}">Polls</a></p>
-  <p><a href="{% url 'logout' %}">Log Out</a></p>
-  <p><a href="{% url 'password_reset' %}">Reset Password</a></p>
+
+ <section class="py-4 text-center container">
+    <div class="row py-lg-1">
+      <div class="col-lg-6 col-md-7 mx-auto">
+        <h1>Welcome, {{ user.username }}!</h1>
+        <p>Please go to <a href="{% url 'polls:index' %}">Polls</a></p>
+      </div>
+    </div>
+  </section>
+
+
+
+<!--If not logged in then  -->
 {% else %}
 
+<section class="py-5 text-center container">
+    <div class="row py-lg-5">
+      <div class="col-lg-6 col-md-8 mx-auto">
+          <h1>Welcome!</h1>
+          <br>
+        <p class="lead mb-5">Please, login to vote.</p>
+      </div>
+    </div>
+  </section>
 
-  <p>You are not logged in</p>
-  <a href="{% url 'login' %}">Log In</a>
-  <br>
 
-  <a href="{% url 'signup' %}">Create a New Account</a>
-  <br>
-  <a href="{% url 'admin:index' %}">Admin</a>
+
+<!--  <p>You are not logged in</p>-->
+<!--  <a href="{% url 'login' %}">Log In</a>-->
+<!--  <br>-->
+<!--  <a href="{% url 'signup' %}">Create a New Account</a>-->
+<!--  <br>-->
+<!--  <a href="{% url 'admin:index' %}">Admin</a>-->
+
 {% endif %}
 {% endblock %}
 
